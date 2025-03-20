@@ -44,7 +44,8 @@ const Index = () => {
       <ParticleNetwork />
       <CyberBackground />
       
-      <style jsx global>{`
+      {/* Add global CSS styles */}
+      <style dangerouslySetInnerHTML={{ __html: `
         .cyber-panel-dark {
           background-color: rgba(18, 18, 18, 0.7);
           border-radius: 8px;
@@ -105,7 +106,7 @@ const Index = () => {
           transform: translateX(100%);
           transition: all 0.7s ease;
         }
-      `}</style>
+      `}} />
       
       <Navbar />
       

@@ -180,7 +180,7 @@ const Projects: React.FC = () => {
       </div>
       
       {/* Add CSS for scanning animation to global styles */}
-      <style jsx global>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scan {
           0% { transform: translateY(0); }
           50% { transform: translateY(100vh); }
@@ -298,7 +298,7 @@ const Projects: React.FC = () => {
           0% { transform: translate(0, 0); }
           100% { transform: translate(-50%, -50%); }
         }
-      `}</style>
+      `}} />
     </section>
   );
 };
