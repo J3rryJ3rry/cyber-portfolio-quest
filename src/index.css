@@ -1,101 +1,171 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 40% 2%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 47% 6%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 47% 6%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 208 100% 97.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 168 100% 38%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
+    --ring: 142.1 76.2% 36.3%;
 
-@layer base {
+    --radius: 0.5rem;
+  }
+
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-cyber-black text-foreground font-sans overflow-x-hidden;
+    background-image: radial-gradient(rgba(0, 136, 255, 0.15) 1px, transparent 1px), 
+                      radial-gradient(rgba(0, 136, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
   }
+}
+
+@layer components {
+  .cyber-border {
+    @apply relative border-2 border-opacity-40 border-cyber-blue transition-all rounded;
+  }
+  
+  .cyber-border:before {
+    content: '';
+    @apply absolute inset-0 border-2 border-cyber-green border-opacity-40 transition-all rounded;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    animation: glitch 2s infinite linear alternate-reverse;
+  }
+  
+  .cyber-panel {
+    @apply bg-cyber-gray bg-opacity-70 backdrop-blur-md border border-cyber-blue/30 rounded-md shadow-lg;
+  }
+  
+  .cyber-text {
+    @apply text-white relative;
+    text-shadow: 0 0 8px rgba(0, 136, 255, 0.5), 0 0 12px rgba(0, 255, 255, 0.3);
+  }
+  
+  .cyber-button {
+    @apply relative overflow-hidden rounded px-4 py-2 text-sm font-medium uppercase tracking-wider text-white shadow transition-all;
+    background: rgba(0, 136, 255, 0.2);
+    border: 1px solid rgba(0, 136, 255, 0.4);
+  }
+  
+  .cyber-button:before {
+    content: '';
+    @apply absolute inset-0 z-[-1] opacity-0 transition-opacity duration-300;
+    background: linear-gradient(45deg, rgba(0, 136, 255, 0.6), rgba(0, 255, 255, 0.6));
+  }
+  
+  .cyber-button:hover:before {
+    @apply opacity-100;
+  }
+  
+  .cyber-button:hover {
+    @apply shadow-lg;
+    box-shadow: 0 0 15px rgba(0, 136, 255, 0.6);
+  }
+  
+  .cyber-panel-dark {
+    @apply bg-cyber-darkgray bg-opacity-95 backdrop-blur-lg border border-cyber-blue/10 rounded-md shadow-lg;
+  }
+  
+  .title-card {
+    @apply relative overflow-hidden rounded-md;
+    background: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 136, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .title-card:before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-[2px];
+    background: linear-gradient(90deg, transparent, rgba(0, 136, 255, 0.8), transparent);
+  }
+  
+  .neon-text {
+    color: #fff;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+  }
+  
+  .cybersecurity-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(0, 136, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 136, 255, 0.05) 1px, transparent 1px);
+  }
+  
+  .glass-panel {
+    @apply bg-black/30 backdrop-blur-md border border-white/10 rounded-lg shadow-xl;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  25% {
+    clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);
+  }
+  50% {
+    clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
+  }
+  75% {
+    clip-path: polygon(0% 5%, 100% 5%, 95% 95%, 5% 95%);
+  }
+  100% {
+    clip-path: polygon(5% 5%, 95% 5%, 100% 95%, 0% 95%);
+  }
+}
+
+.terminal-text {
+  font-family: 'JetBrains Mono', monospace;
+  color: #00FF41;
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+}
+
+.bg-matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.07;
+}
+
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
