@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Linkedin, Phone, MapPin, FileText } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 const About: React.FC = () => {
   const { ref, inView } = useInView({
@@ -26,7 +26,7 @@ const About: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className={`lg:col-span-7 transition-all duration-1000 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
+          <div className={`lg:col-span-12 transition-all duration-1000 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
             <div className="cyber-panel-dark p-6 h-full">
               <h4 className="text-xl font-bold mb-4 text-white">Cybersecurity Specialist</h4>
               
@@ -73,65 +73,11 @@ const About: React.FC = () => {
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
-          
-          <div className={`lg:col-span-5 transition-all duration-1000 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
-            <div className="cyber-panel-dark p-6 h-full">
-              <h4 className="text-xl font-bold mb-6 text-white">Contact Information</h4>
-              
-              <div className="space-y-5">
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-cyber-blue/10 flex items-center justify-center mr-4">
-                    <Mail className="text-cyber-blue w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Email</p>
-                    <a href="mailto:1111Jaydeeppatel0000@gmail.com" className="text-white hover:text-cyber-blue transition-colors">
-                      1111Jaydeeppatel0000@gmail.com
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-cyber-blue/10 flex items-center justify-center mr-4">
-                    <Linkedin className="text-cyber-blue w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">LinkedIn</p>
-                    <a href="https://linkedin.com/in/jaydeep-patel-812a42236" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyber-blue transition-colors">
-                      jaydeep-patel-812a42236
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-cyber-blue/10 flex items-center justify-center mr-4">
-                    <Phone className="text-cyber-blue w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Phone</p>
-                    <a href="tel:+917285010557" className="text-white hover:text-cyber-blue transition-colors">
-                      +91 72850 10557
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-cyber-blue/10 flex items-center justify-center mr-4">
-                    <MapPin className="text-cyber-blue w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Location</p>
-                    <p className="text-white">Vadodara, India</p>
-                  </div>
-                </div>
-              </div>
               
               <div className="mt-8 flex justify-center">
                 <a 
                   href="#" 
-                  className="cyber-button flex items-center justify-center w-full py-3"
+                  className="cyber-button flex items-center justify-center py-3 px-6"
                 >
                   <FileText size={18} className="mr-2" />
                   Download Resume

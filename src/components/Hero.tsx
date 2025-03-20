@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 cyber-text">
-              Jaydeep Kirankumar Patel
+              Jaydeep Patel
             </h1>
             
             <h2 className="text-xl md:text-2xl font-mono text-gray-300 mb-6">
